@@ -112,6 +112,21 @@ $\lim_{x \rightarrow 0}\frac{\sin x}{x}$
   $\phi$   Golden ratio     $\phi = \frac{1 + \sqrt{5}}{2}$
   -----------------------------------------------------------------------------------------------
 
+## Table Column Alignment
+
+Use colons in the pipe-table separator to control alignment. This is respected by both DOCX (pandoc) and PDF renderers.
+
+```
+|:---| = left    |---:| = right    |:---:| = center    |----| = default (left)
+```
+
+Center short/numeric columns; left-align text-heavy columns:
+
+| Belief | Assertion | Prior | Posterior |
+|:------:|:----------|:-----:|:---------:|
+| 37 | Bile acid sequestrants decrease the hepatic bile acid pool | 0.96 | 0.25 |
+| 13 | Dietary saturated fat increases hepatic cholesterol | 0.88 | 0.20 |
+
 ## Syntax Warnings (Unstable on Round-trip)
 
 Use $\left\lbrack x \right\rbrack$, not $\left[ x \right]$ (converts to lbrack/rbrack anyway).

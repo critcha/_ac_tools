@@ -34,9 +34,11 @@ ref_doc="$script_dir/md_to_docx_reference.docx"
 
 echo "Converting: $input → $output"
 if [[ -f "$ref_doc" ]]; then
-    pandoc "$input" --reference-doc="$ref_doc" -o "$output"
+    pandoc "$input" --reference-doc="$ref_doc" --columns=1 -o "$output"
 else
     echo "  (warning: $ref_doc not found, using pandoc defaults)" >&2
-    pandoc "$input" -o "$output"
+    pandoc "$input" --columns=1 -o "$output"
 fi
+# Fix pandoc's hardcoded 7920-twip table width to match actual page dimensions
+python3 "$script_dir/md_to_docx_postprocess.py" "$output"
 echo "Done: $output"
