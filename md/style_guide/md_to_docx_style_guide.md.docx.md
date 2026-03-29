@@ -52,6 +52,19 @@ A numbered list with math:
 
 3.  The limit $\lim_{n \rightarrow \infty}\left( 1 + \frac{1}{n} \right)^{n} = e$.
 
+## Stable Blockquote
+
+> This is a blockquote. It renders with a light blue background, a blue left border, and indentation on both sides. Round-trips cleanly through DOCX.
+
+Nested blockquotes are not supported --- pandoc flattens them to a single level in DOCX, losing the nesting. Avoid nested \> \> syntax. TODO: find a way to support nested blockquotes. If you need to display nested block quotes as a code block, you can still do that:
+
+
+    > Outer blockquote.
+    >
+    > > Inner nested blockquote.
+    >
+    > Back to outer.
+
 ## Stable Advanced Math
 
 Calligraphic and blackboard bold: $\mathcal{F}$, $\mathbb{R}$, $\mathbf{v}$.
@@ -111,6 +124,23 @@ $\lim_{x \rightarrow 0}\frac{\sin x}{x}$
 
   $\phi$   Golden ratio     $\phi = \frac{1 + \sqrt{5}}{2}$
   -----------------------------------------------------------------------------------------------
+
+## Table Column Alignment
+
+Use colons in the pipe-table separator to control alignment. This is respected by both DOCX (pandoc) and PDF renderers.
+
+
+    |:---| = left    |---:| = right    |:---:| = center    |----| = default (left)
+
+Center short/numeric columns; left-align text-heavy columns:
+
+  ----------------------------------------------------------------------------------------------------------------
+      Belief      Assertion                                                        Prior           Posterior
+  --------------- ------------------------------------------------------------ ------------- ---------------------
+        37        Bile acid sequestrants decrease the hepatic bile acid pool       0.96              0.25
+
+        13        Dietary saturated fat increases hepatic cholesterol              0.88              0.20
+  ----------------------------------------------------------------------------------------------------------------
 
 ## Syntax Warnings (Unstable on Round-trip)
 

@@ -52,6 +52,20 @@ A numbered list with math:
 
 3.  The limit $\lim_{n \rightarrow \infty}\left( 1 + \frac{1}{n} \right)^{n} = e$.
 
+## Stable Blockquote
+
+> This is a blockquote. It renders with a light blue background, a blue left border, and indentation on both sides. Round-trips cleanly through DOCX.
+
+Nested blockquotes are not supported — pandoc flattens them to a single level in DOCX, losing the nesting. Avoid nested `> >` syntax. TODO: find a way to support nested blockquotes. If you need to display nested block quotes as a code block, you can still do that:
+
+```
+> Outer blockquote.
+>
+> > Inner nested blockquote.
+>
+> Back to outer.
+```
+
 ## Stable Advanced Math
 
 Calligraphic and blackboard bold: $\mathcal{F}$, $\mathbb{R}$, $\mathbf{v}$.
